@@ -1,0 +1,17 @@
+{
+    "projectName": "Onboarding - Work Manager",
+    "username": "onboardingfk@altimetril.com",
+    "id": "6b37d240-4c82-11e8-b6ce-9df6b2d9952d",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://na59.salesforce.com",
+    "workspace": "C:\\Users\\fkleinman\\Documents",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}
