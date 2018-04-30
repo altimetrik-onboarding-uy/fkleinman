@@ -12,6 +12,24 @@
         "ApexComponent",
         "ApexPage",
         "ApexTrigger",
-        "StaticResource"
+        "CustomApplication",
+        "CustomApplicationComponent",
+        "CustomLabels",
+        "CustomMetadata",
+        "CustomObject",
+        "CustomSite",
+        "CustomTab",
+        "Dashboard",
+        "EmailTemplate",
+        "FlexiPage",
+        "Flow",
+        "FlowDefinition",
+        "GlobalPicklist",
+        "HomePageComponent",
+        "Layout",
+        "Report",
+        "ReportType",
+        "StaticResource",
+        "Workflow"
     ]
 }
