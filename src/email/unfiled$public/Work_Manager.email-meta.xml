@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Work_Manager</letterhead>
+    <name>Work Manager</name>
+    <style>formalLetter</style>
+    <subject>New work for you! :)</subject>
+    <textOnly>Hi there! {!Work_Item__c.CreatedBy} has created some work for you!
+
+Name: {!Work_Item__c.Name}
+Title: {!Work_Item__c.Title__c}
+Description: {!Work_Item__c.Description__c}
+
+You can check more details about this work on this link: {!Work_Item__c.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>
