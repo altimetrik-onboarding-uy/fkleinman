@@ -6,6 +6,8 @@
   <!--Call functionon init, this function retrive all works as mentioned-->
   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
+    <aura:handler event="force:showToast" action="{! c.viewRefreshed}" />
+
   <div class="bk">
     <h1>IN PROGRESS</h1>
     <aura:iteration items="{!v.inprogressWork}" var="inprogressWorks" >

@@ -16,5 +16,10 @@
 	         "recordId": event.target.id
 	   });
 	    editRecordEvent.fire();
-		}
+		},
+
+		viewRefreshed: function( cmp, evt, h ) {
+        console.log('view refreshed!');
+				$A.get('e.force:refreshView').fire();
+    }
 })

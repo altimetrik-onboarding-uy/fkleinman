@@ -8,8 +8,6 @@
 
   <aura:handler event="force:showToast" action="{! c.viewRefreshed}" />
 
-  <!--Evento a ser lanzado cuando se modifica un work item-->
-  <aura:registerEvent name="saveWorkItemEvent" type="c:saveWorkItemEvent"/>
 
   <div class="bk">
     <h1>DONE</h1>
