@@ -1,0 +1,23 @@
+<aura:component controller="workController" implements="flexipage:availableForAllPageTypes, force:appHostable" access='global'>
+
+  <aura:attribute name="readyWork" type="bootstrap_deve__Work_Item__c[]" />  <!--Una lista por cada state de los works-->
+
+  <!--Call functionon init, this function retrive all works as mentioned-->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+  <div class="bk">
+    <h1>READY</h1>
+    <aura:iteration items="{!v.readyWork}" var="readyWorks" >
+      <lightning:card iconName="{!'standard:' + readyWorks.bootstrap_deve__Type__c}">
+        <aura:set attribute="title">
+          <a onclick="{!c.editRecord}" id="{!readyWorks.Id}">{!readyWorks.bootstrap_deve__Title__c}</a>
+        </aura:set>
+        <aura:set attribute="actions">
+          <lightning:badge label="{!readyWorks.bootstrap_deve__Difficulty_Level__c}" />
+        </aura:set>
+      </lightning:card>
+    </aura:iteration>
+  </div>
+
+
+</aura:component>

@@ -1,0 +1,23 @@
+<aura:component controller="workController" implements="flexipage:availableForAllPageTypes, force:hasRecordId" access='global'>
+
+  <!--Una lista por cada state de los works-->
+  <aura:attribute name="newWork" type="bootstrap_deve__Work_Item__c[]" />
+
+  <!--Call functionon init, this function retrive all works as mentioned-->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+  <div class="bk">
+    <h1>NEW</h1>
+    <aura:iteration items="{!v.newWork}" var="newWorks" >
+      <lightning:card iconName="{!'standard:' + newWorks.bootstrap_deve__Type__c}">
+        <aura:set attribute="title">
+          <a onclick="{!c.editRecord}" id="{!newWorks.Id}">{!newWorks.bootstrap_deve__Title__c}</a>
+        </aura:set>
+        <aura:set attribute="actions">
+          <lightning:badge label="{!newWorks.bootstrap_deve__Difficulty_Level__c}" />
+        </aura:set>
+      </lightning:card>
+    </aura:iteration>
+  </div>
+
+</aura:component>
