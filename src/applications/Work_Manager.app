@@ -4,6 +4,7 @@
     <description>Work Manager developed for onboarding project.</description>
     <label>Work Manager</label>
     <tab>Work_Item__c</tab>
+    <tab>Part_2</tab>
     <tab>standard-Contact</tab>
     <tab>standard-report</tab>
 </CustomApplication>

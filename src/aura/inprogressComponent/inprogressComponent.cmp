@@ -1,7 +1,10 @@
-<aura:component controller="workController" implements="flexipage:availableForAllPageTypes, force:hasRecordId" access='global'>
+<aura:component controller="workController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access='global'>
 
   <!--Una lista por cada state de los works-->
-  <aura:attribute name="inprogressWork" type="bootstrap_deve__Work_Item__c[]" />
+  <aura:attribute name="inprogressWork" type="Work_Item__c[]" />
+
+  <aura:attribute name="contexto" type="String"/>
+
 
   <!--Call functionon init, this function retrive all works as mentioned-->
   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>

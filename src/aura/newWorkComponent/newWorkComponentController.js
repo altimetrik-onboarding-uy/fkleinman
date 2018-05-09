@@ -4,7 +4,7 @@
 		var action =component.get("c.get30DaysNewWorks");
     action.setCallback(this, function(a){
             component.set("v.newWork", a.getReturnValue());
-           	console.log('The NEW works are :'+JSON.stringify(a.getReturnValue()));
+           	//console.log('The NEW works are :'+JSON.stringify(a.getReturnValue()));
         });
         $A.enqueueAction(action);
 	},
@@ -19,7 +19,7 @@
 		},
 
 		viewRefreshed: function( cmp, evt, h ) {
-        console.log('view refreshed!');
+        //console.log('view refreshed!');
 				$A.get('e.force:refreshView').fire();
     }
 })

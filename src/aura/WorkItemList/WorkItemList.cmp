@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="workItems" type="Object[]"/>
+
+    <div class="bk">
+      <h1>{!v.title}</h1>
+      <aura:iteration items="{!v.workItems}" var="work" >
+        <c:WorkItemCard workItem="{!work}" />
+      </aura:iteration>
+    </div>
+
+
+</aura:component>

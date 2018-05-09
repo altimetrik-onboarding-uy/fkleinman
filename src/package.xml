@@ -17,8 +17,20 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>AppMenu</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>AuraDefinitionBundle</name>
+	</types>
+	<types>
 		<members>Work_Manager</members>
 		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomApplicationComponent</name>
 	</types>
 	<types>
 		<members>CustomLabels</members>
@@ -41,7 +53,7 @@
 		<name>EmailTemplate</name>
 	</types>
 	<types>
-		<members>Work_Manager_UtilityBar</members>
+		<members>*</members>
 		<name>FlexiPage</name>
 	</types>
 	<types>
@@ -61,6 +73,10 @@
 		<name>HomePageComponent</name>
 	</types>
 	<types>
+		<members>*</members>
+		<name>HomePageLayout</name>
+	</types>
+	<types>
 		<members>Work_Item__c-Work Item Layout</members>
 		<name>Layout</name>
 	</types>
@@ -71,20 +87,15 @@
 	</types>
 	<types>
 		<members>*</members>
+		<name>ReportType</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>StaticResource</name>
 	</types>
 	<types>
 		<members>Work_Item__c</members>
 		<name>Workflow</name>
-	</types>
-	<types>
-		<members>columnComponent</members>
-		<members>newWorkComponent</members>
-		<members>readyComponent</members>
-		<members>inprogressComponent</members>
-		<members>doneComponent</members>
-		<members>saveWorkItemEvent</members>
-		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>36.0</version>
 </Package>

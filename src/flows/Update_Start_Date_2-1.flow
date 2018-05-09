@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <processMetadataValues>
-            <name>emailAlertSelection</name>
-            <value>
-                <stringValue>Work_Assignee</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A1</name>
-        <label>Send email to assignee</label>
-        <locationX>100</locationX>
-        <locationY>200</locationY>
-        <actionName>bootstrap_deve__Work_Item__c.Work_Assignee</actionName>
-        <actionType>emailAlert</actionType>
-        <inputParameters>
-            <name>SObjectRowId</name>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
     <assignments>
         <name>myVariable_waitStartTimeAssignment</name>
         <label>myVariable_waitStartTimeAssignment</label>
@@ -61,23 +41,41 @@
             <connector>
                 <targetReference>myRule_1_A1</targetReference>
             </connector>
-            <label>If someone is assigned to a work</label>
+            <label>If New to Ready sets Start Date</label>
         </rules>
     </decisions>
-    <description>When someone gets assigned to a work, this process notify him by mail</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>AND([Work_Item__c].Assignee__c.Email != &apos;&apos;, [Work_Item__c].Assignee__c.Email  != null)</stringValue>
+                <stringValue>NOW()</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_9320252755</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+    ISCHANGED([bootstrap_deve__Work_Item__c].Status__c),
+    TEXT(PRIORVALUE([bootstrap_deve__Work_Item__c].Status__c)) = &quot;New&quot;,
+    TEXT([bootstrap_deve__Work_Item__c].Status__c) = &quot;Ready&quot;
+)</stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
-        <expression>AND({!myVariable_current.Assignee__c.Email} != &apos;&apos;, {!myVariable_current.Assignee__c.Email}  != null)</expression>
+        <expression>AND(
+    ISCHANGED({!myVariable_current.Status__c}),
+    TEXT(PRIORVALUE({!myVariable_current.Status__c})) = &quot;New&quot;,
+    TEXT({!myVariable_current.Status__c}) = &quot;Ready&quot;
+)</expression>
     </formulas>
-    <interviewLabel>Send_Assignee_Email-2_InterviewLabel</interviewLabel>
-    <label>Send Assignee Email</label>
+    <interviewLabel>Update_Start_Date_2-1_InterviewLabel</interviewLabel>
+    <label>Update Start Date 2</label>
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
@@ -103,6 +101,80 @@
         </value>
     </processMetadataValues>
     <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[bootstrap_deve__Work_Item__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Sets Start Date</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>DateTime</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Start Date</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Start_Date__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A1_9320252755</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Work_Item__c</object>
+    </recordUpdates>
     <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
     <variables>
         <name>myVariable_current</name>

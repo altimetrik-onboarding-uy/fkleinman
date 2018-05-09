@@ -1,6 +1,6 @@
-<aura:component controller="workController" implements="flexipage:availableForAllPageTypes, force:appHostable" access='global'>
+<aura:component controller="workController" implements="flexipage:availableForAllPageTypes,force:appHostable" access='global'>
 
-  <aura:attribute name="readyWork" type="bootstrap_deve__Work_Item__c[]" />  <!--Una lista por cada state de los works-->
+  <aura:attribute name="readyWork" type="Work_Item__c[]" />  <!--Una lista por cada state de los works-->
 
   <!--Call functionon init, this function retrive all works as mentioned-->
   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>

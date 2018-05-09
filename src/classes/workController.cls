@@ -1,55 +1,36 @@
 public with sharing class workController {
 
-	/*Trae todos los trabajos*/
 	@AuraEnabled
-	public static List<bootstrap_deve__Work_Item__c> getAllWorks() {
-   return [SELECT bootstrap_deve__Title__c,
-	 bootstrap_deve__Description__c,
-	 bootstrap_deve__Difficulty_Level__c,
-	 bootstrap_deve__Type__c FROM bootstrap_deve__Work_Item__c];
+	public static List<bootstrap_deve__Work_Item__c> get30DaysWorks(String recordId){
+
+    	if(recordId.equals('')){
+				//It is on a general context
+				return mapIcons([SELECT bootstrap_deve__Title__c,
+		 	 	bootstrap_deve__Description__c,
+		 	 	bootstrap_deve__Difficulty_Level__c,
+		 	 	bootstrap_deve__Type__c, bootstrap_deve__Status__c, CreatedDate
+			 	FROM bootstrap_deve__Work_Item__c
+			 	WHERE CreatedDate = LAST_N_DAYS:30]);
+			}
+			else{
+				//It is on a particular context
+				return mapIcons([SELECT bootstrap_deve__Title__c,
+		 	 	bootstrap_deve__Description__c,
+		 	 	bootstrap_deve__Difficulty_Level__c,
+		 	 	bootstrap_deve__Type__c, bootstrap_deve__Status__c, CreatedDate
+			 	FROM bootstrap_deve__Work_Item__c
+			 	WHERE CreatedDate = LAST_N_DAYS:30
+			 	AND bootstrap_deve__Assignee__r.Id = :recordId ]);
+			}
 	}
 
-	//All work items started during the last 30 days with state of NEW
-	@AuraEnabled
-	public static List<bootstrap_deve__Work_Item__c> get30DaysNewWorks(){
-		return mapIcons([SELECT bootstrap_deve__Title__c,
- 	 bootstrap_deve__Description__c,
- 	 bootstrap_deve__Difficulty_Level__c,
- 	 bootstrap_deve__Type__c, CreatedDate
-	 FROM bootstrap_deve__Work_Item__c
-	 WHERE bootstrap_deve__Status__c = 'New' AND CreatedDate = LAST_N_DAYS:30]);
-	}
-
-	//All work items started during the last 30 days with state of READY
-	@AuraEnabled
-	public static List<bootstrap_deve__Work_Item__c> get30DaysReadywWorks(){
-		return mapIcons([SELECT bootstrap_deve__Title__c,
- 	 bootstrap_deve__Description__c,
- 	 bootstrap_deve__Difficulty_Level__c,
- 	 bootstrap_deve__Type__c, CreatedDate
-	 FROM bootstrap_deve__Work_Item__c
-	 WHERE bootstrap_deve__Status__c = 'Ready' AND CreatedDate = LAST_N_DAYS:30]);
-	}
-
-	//All work items started during the last 30 days with state of INPROGRESS
-	@AuraEnabled
-	public static List<bootstrap_deve__Work_Item__c> get30DaysInprogressWorks(){
-		return mapIcons([SELECT bootstrap_deve__Title__c,
- 	 bootstrap_deve__Description__c,
- 	 bootstrap_deve__Difficulty_Level__c,
- 	 bootstrap_deve__Type__c, CreatedDate
-	 FROM bootstrap_deve__Work_Item__c
-	 WHERE bootstrap_deve__Status__c = 'In Progress' AND CreatedDate = LAST_N_DAYS:30]);
-	}
-	//All work items started during the last 30 days with state of DONE
-	@AuraEnabled
-	public static List<bootstrap_deve__Work_Item__c> get30DaysDoneWorks(){
-		return mapIcons([SELECT bootstrap_deve__Title__c,
- 	 bootstrap_deve__Description__c,
- 	 bootstrap_deve__Difficulty_Level__c,
- 	 bootstrap_deve__Type__c, CreatedDate
-	 FROM bootstrap_deve__Work_Item__c
-	 WHERE bootstrap_deve__Status__c = 'Done' AND CreatedDate = LAST_N_DAYS:30]);
+	//This method return overdues works. Used for daily schedule to report overdue
+	public List<bootstrap_deve__Work_Item__c> getOverdueWork(){
+		return[SELECT bootstrap_deve__Title__c,
+		bootstrap_deve__Description__c,
+		bootstrap_deve__Difficulty_Level__c,
+		bootstrap_deve__Type__c FROM bootstrap_deve__Work_Item__c
+		WHERE bootstrap_deve__Estimated_End_Date__c <= TODAY];
 	}
 
 	//This method maps icons with type

@@ -12,6 +12,8 @@
         "ApexComponent",
         "ApexPage",
         "ApexTrigger",
+        "AppMenu",
+        "AuraDefinitionBundle",
         "CustomApplication",
         "CustomApplicationComponent",
         "CustomLabels",
@@ -26,9 +28,13 @@
         "FlowDefinition",
         "GlobalPicklist",
         "HomePageComponent",
+        "HomePageLayout",
         "Layout",
+        "Profile",
         "Report",
         "ReportType",
+        "Settings",
+        "SharingRules",
         "StaticResource",
         "Workflow"
     ]
