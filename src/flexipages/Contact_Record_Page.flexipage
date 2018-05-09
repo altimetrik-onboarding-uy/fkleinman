@@ -28,9 +28,6 @@
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <componentInstances>
-            <componentName>columnComponent</componentName>
-        </componentInstances>
-        <componentInstances>
             <componentName>WorkItemDashboard</componentName>
         </componentInstances>
         <mode>Replace</mode>
