@@ -11,7 +11,7 @@
         <label>Send email to assignee</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
-        <actionName>Work_Item__c.Work_Assignee</actionName>
+        <actionName>bootstrap_deve__Work_Item__c.Work_Assignee</actionName>
         <actionType>emailAlert</actionType>
         <inputParameters>
             <name>SObjectRowId</name>

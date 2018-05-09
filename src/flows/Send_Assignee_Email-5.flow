@@ -11,7 +11,7 @@
         <label>Send email to assignee</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
-        <actionName>Work_Item__c.Work_Assignee</actionName>
+        <actionName>bootstrap_deve__Work_Item__c.Work_Assignee</actionName>
         <actionType>emailAlert</actionType>
         <inputParameters>
             <name>SObjectRowId</name>
@@ -56,10 +56,10 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>myVariable_old.Assignee__r.Email</leftValueReference>
+                <leftValueReference>myVariable_old.bootstrap_deve__Assignee__r.Email</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <elementReference>myVariable_current.Assignee__r.Email</elementReference>
+                    <elementReference>myVariable_current.bootstrap_deve__Assignee__r.Email</elementReference>
                 </rightValue>
             </conditions>
             <connector>

@@ -542,7 +542,7 @@
             "xmlName": "Settings"
         }
     ],
-    "organizationNamespace": "",
+    "organizationNamespace": "bootstrap_deve",
     "partialSaveAllowed": true,
     "testRequired": false
 }

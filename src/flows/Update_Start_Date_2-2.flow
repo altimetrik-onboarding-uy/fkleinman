@@ -41,10 +41,9 @@
             <connector>
                 <targetReference>myRule_1_A1</targetReference>
             </connector>
-            <label>If Status changes from New to Ready</label>
+            <label>If New to Ready sets Start Date</label>
         </rules>
     </decisions>
-    <description>Updates the Start Date when Work Status changes from New to Ready</description>
     <formulas>
         <processMetadataValues>
             <name>originalFormula</name>
@@ -52,7 +51,7 @@
                 <stringValue>NOW()</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A1_8228324936</name>
+        <name>formula_2_myRule_1_A1_2062679639</name>
         <dataType>DateTime</dataType>
         <expression>NOW()</expression>
     </formulas>
@@ -61,22 +60,22 @@
             <name>originalFormula</name>
             <value>
                 <stringValue>AND(
-    ISCHANGED([Work_Item__c].Status__c),
-    TEXT(PRIORVALUE([Work_Item__c].Status__c)) = &quot;New&quot;,
-    TEXT([Work_Item__c].Status__c) = &quot;Ready&quot;
+    ISCHANGED([bootstrap_deve__Work_Item__c].bootstrap_deve__Status__c),
+    TEXT(PRIORVALUE([bootstrap_deve__Work_Item__c].bootstrap_deve__Status__c)) = &quot;New&quot;,
+    TEXT([bootstrap_deve__Work_Item__c].bootstrap_deve__Status__c) = &quot;Ready&quot;
 )</stringValue>
             </value>
         </processMetadataValues>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
         <expression>AND(
-    ISCHANGED({!myVariable_current.Status__c}),
-    TEXT(PRIORVALUE({!myVariable_current.Status__c})) = &quot;New&quot;,
-    TEXT({!myVariable_current.Status__c}) = &quot;Ready&quot;
+    ISCHANGED({!myVariable_current.bootstrap_deve__Status__c}),
+    TEXT(PRIORVALUE({!myVariable_current.bootstrap_deve__Status__c})) = &quot;New&quot;,
+    TEXT({!myVariable_current.bootstrap_deve__Status__c}) = &quot;Ready&quot;
 )</expression>
     </formulas>
-    <interviewLabel>Update_Start_Date-2_InterviewLabel</interviewLabel>
-    <label>Update Start Date</label>
+    <interviewLabel>Update_Start_Date_2-2_InterviewLabel</interviewLabel>
+    <label>Update Start Date 2</label>
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
@@ -118,11 +117,11 @@
         <processMetadataValues>
             <name>reference</name>
             <value>
-                <stringValue>[Work_Item__c]</stringValue>
+                <stringValue>[bootstrap_deve__Work_Item__c]</stringValue>
             </value>
         </processMetadataValues>
         <name>myRule_1_A1</name>
-        <label>Update Start Date</label>
+        <label>Sets Start Date</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
         <filters>
@@ -171,7 +170,7 @@
             </processMetadataValues>
             <field>Start_Date__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A1_8228324936</elementReference>
+                <elementReference>formula_2_myRule_1_A1_2062679639</elementReference>
             </value>
         </inputAssignments>
         <object>Work_Item__c</object>

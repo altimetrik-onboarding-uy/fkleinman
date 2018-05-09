@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+  <aura:attribute name="workItem" type="Object"/>
+  <aura:handler event="force:showToast" action="{! c.viewRefreshed}" />
+
+  <lightning:card iconName="{!'standard:' + v.workItem.bootstrap_deve__Type__c}">
+    <aura:set attribute="title">
+      <a onclick="{!c.editRecord}" id="{!v.workItem.Id}">{!v.workItem.bootstrap_deve__Title__c}</a>
+    </aura:set>
+    <aura:set attribute="actions">
+      <lightning:badge label="{!v.workItem.bootstrap_deve__Difficulty_Level__c}" />
+    </aura:set>
+  </lightning:card>
+</aura:component>
