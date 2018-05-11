@@ -30,7 +30,7 @@ public with sharing class workController {
 		bootstrap_deve__Description__c,
 		bootstrap_deve__Difficulty_Level__c,
 		bootstrap_deve__Type__c FROM bootstrap_deve__Work_Item__c
-		WHERE bootstrap_deve__Estimated_End_Date__c <= TODAY];
+		WHERE bootstrap_deve__Estimated_End_Date__c <= TODAY AND bootstrap_deve__Status__c != 'Done'];
 	}
 
 	//This method maps icons with type
