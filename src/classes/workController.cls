@@ -2,7 +2,6 @@ public with sharing class workController {
 
 	@AuraEnabled
 	public static List<bootstrap_deve__Work_Item__c> get30DaysWorks(String recordId){
-
     	if(recordId.equals('')){
 				//It is on a general context
 				return mapIcons([SELECT bootstrap_deve__Title__c,
@@ -25,7 +24,7 @@ public with sharing class workController {
 	}
 
 	//This method return overdues works. Used for daily schedule to report overdue
-	public List<bootstrap_deve__Work_Item__c> getOverdueWork(){
+	public static List<bootstrap_deve__Work_Item__c> getOverdueWork(){
 		return[SELECT bootstrap_deve__Title__c,
 		bootstrap_deve__Description__c,
 		bootstrap_deve__Difficulty_Level__c,
